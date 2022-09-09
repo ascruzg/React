@@ -1,19 +1,31 @@
 import React from "react";
 import logo from '../../assets/logo.png'
 import "./Header.css"
+import {CartWidget} from "../CartWidget/CartWidget"
+const menu= [
+    {id:0, nombre : "Inicio"},
+    {id:0, nombre : "Store"},
+    {id:0, nombre : "Policy"},
+    {id:0, nombre : "Blog"},
+    {id:0, nombre : "Contact"},
 
-const Header =()=> {
+]
+
+const Header =(props)=> {
     return (
         <header className="container_header">
             <img src={logo} alt="logo" className="main_logo"/>
-             <nav className="NavMenu">
-                   <a href="">Inicio</a>
-                   <a href="">Store</a>
-                   <a href="">Policy</a>
-                   <a href="">Blog</a>
-                   <a href="">Contact</a>
-
-             </nav>
+            <nav className="NavMenu">
+                {
+                   menu.map((link)=>{
+                    return <a key ={link.id}  href=""> {link.nombre} </a> /*(esto es dinamico para consumir apis)Se crea un map con ud id porque este si me retorna algo para que react lo reconozca valido no se puede usar for*/ 
+                   })
+                }
+            </nav>
+        <p >{props.name} {props.lastName} </p>
+           
+        <CartWidget/>
+        
         </header>
     )
     

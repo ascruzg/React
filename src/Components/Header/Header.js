@@ -4,10 +4,10 @@ import "./Header.css"
 import {CartWidget} from "../CartWidget/CartWidget"
 const menu= [
     {id:0, nombre : "Inicio"},
-    {id:0, nombre : "Store"},
-    {id:0, nombre : "Policy"},
-    {id:0, nombre : "Blog"},
-    {id:0, nombre : "Contact"},
+    {id:1, nombre : "Store"},
+    {id:2, nombre : "Policy"},
+    {id:3, nombre : "Blog"},
+    {id:4, nombre : "Contact"},
 
 ]
 

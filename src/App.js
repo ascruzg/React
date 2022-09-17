@@ -15,7 +15,7 @@ const App =()=>{
     <>
     <Header name={name} lastName="Cruz"></Header>
     <ItemListContainer greeding={welcome}/>
-    <ItemCount stock={stock} addOn={addOn} />
+    <ItemCount initial ={1} stock={stock} addOn={addOn} />
     </>
     
     

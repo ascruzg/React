@@ -2,8 +2,8 @@ import React,{useState} from "react";
 import "./ItemCount.css"
 
 
-const ItemCount =({stock,addOn})=> {
-    const [contador, setContador]= useState(1);
+const ItemCount =({initial, stock,addOn})=> {
+    const [contador, setContador]= useState(initial);
     const sumar = ()=>{
         if(contador<stock){
             setContador(contador + 1);
@@ -13,12 +13,8 @@ const ItemCount =({stock,addOn})=> {
         }
     }
 
-    const restar = ()=>{
-        if (contador>1){
-            setContador(contador -1);
-        }
-        
-    }
+    const restar =() => contador > 1 && setContador (contador -1)//esto es un circuito corto
+      
 
 
 
@@ -28,10 +24,13 @@ const ItemCount =({stock,addOn})=> {
     return (
         <div>
             <h2>Camisa Negra</h2>
-            <h3>{contador}</h3>
-            <button onClick={sumar}>+</button>
-            <button onClick={restar}>-</button>
-            <button onClick={reset}>reset</button>
+            
+            <button disabled={contador===stock} onClick={sumar}>+</button>
+            <span>{contador}</span>
+            <button disabled={contador===initial} onClick={restar}>-</button>
+            <div>            
+                <button onClick={reset}>reset</button>
+            </div>
             <div>
                 <button onClick={addOn}>addOn</button>
             </div>
